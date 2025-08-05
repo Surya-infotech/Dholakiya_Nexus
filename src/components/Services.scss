@@ -1,0 +1,110 @@
+.services {
+  padding: 5rem 0;
+  background: var(--background-light);
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--white);
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+
+        &::before {
+          content: '✓';
+          color: var(--primary-color);
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .services-cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    color: var(--white);
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+      }
+
+      p {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        color: var(--white);
+        opacity: 1;
+      }
+
+      .btn {
+        background: var(--secondary-color);
+        color: var(--white);
+
+        &:hover {
+          background: var(--secondary-dark);
+        }
+      }
+    }
+  }
+} 
