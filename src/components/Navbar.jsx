@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { Close, Menu } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, Close } from '@mui/icons-material';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        
+
         {/* Right Side - Navigation Links */}
         <div className="navbar-right">
           <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>

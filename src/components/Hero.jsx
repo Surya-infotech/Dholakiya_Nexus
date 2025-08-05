@@ -1,5 +1,4 @@
-import React from 'react';
-import { Rocket, ArrowForward, Code, PhoneAndroid } from '@mui/icons-material';
+import { ArrowForward, Code, PhoneAndroid, Rocket } from '@mui/icons-material';
 import './Hero.scss';
 
 const Hero = () => {

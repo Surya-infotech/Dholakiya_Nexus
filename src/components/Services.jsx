@@ -1,13 +1,11 @@
-import React from 'react';
-import { 
-  Code, 
-  PhoneAndroid, 
-  Settings,
-  ArrowForward 
-} from '@mui/icons-material';
+import { ArrowForward, Code, PhoneAndroid, Settings } from '@mui/icons-material';
+import { useLocation } from 'react-router-dom';
 import './Services.scss';
 
 const Services = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -39,12 +37,14 @@ const Services = () => {
   return (
     <section className="services" id="services">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Our Services</h2>
-          <p className="section-subtitle">
-            We offer comprehensive IT solutions to help your business thrive in the digital age
-          </p>
-        </div>
+        {isHomePage && (
+          <div className="section-header">
+            <h2 className="section-title">Our Services</h2>
+            <p className="section-subtitle">
+              We offer comprehensive IT solutions to help your business thrive in the digital age
+            </p>
+          </div>
+        )}
 
         <div className="services-grid">
           {services.map((service, index) => {
@@ -56,7 +56,7 @@ const Services = () => {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                
+
                 <ul className="service-features">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex}>{feature}</li>
@@ -71,7 +71,7 @@ const Services = () => {
           <div className="cta-content">
             <h3>Ready to Transform Your Business?</h3>
             <p>Let's discuss how our services can help you achieve your goals</p>
-            <button 
+            <button
               className="btn"
               onClick={() => scrollToSection('contact')}
             >

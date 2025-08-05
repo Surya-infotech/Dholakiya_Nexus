@@ -1,10 +1,4 @@
-import React from 'react';
-import { 
-  Lightbulb, 
-  Group, 
-  EmojiEvents, 
-  Handshake
-} from '@mui/icons-material';
+import { EmojiEvents, Group, Handshake, Lightbulb } from '@mui/icons-material';
 import './About.scss';
 
 const About = () => {
@@ -46,15 +40,15 @@ const About = () => {
             <h2>About Dholakiya Nexus</h2>
             <div className="about-description">
               <p>
-                Founded with a vision to bridge the gap between technology and business success, 
-                Dholakiya Nexus has grown into a trusted partner for companies seeking innovative 
-                digital solutions. Our team of experienced developers, designers, and consultants 
+                Founded with a vision to bridge the gap between technology and business success,
+                Dholakiya Nexus has grown into a trusted partner for companies seeking innovative
+                digital solutions. Our team of experienced developers, designers, and consultants
                 work together to deliver exceptional results.
               </p>
-              
+
               <p>
-                We believe in the power of technology to transform businesses and create meaningful 
-                impact. From startups to enterprise-level organizations, we provide tailored solutions 
+                We believe in the power of technology to transform businesses and create meaningful
+                impact. From startups to enterprise-level organizations, we provide tailored solutions
                 that drive growth, efficiency, and competitive advantage.
               </p>
             </div>
@@ -77,10 +71,7 @@ const About = () => {
             </div>
 
             <div className="about-cta">
-              <button 
-                className="btn"
-                onClick={() => scrollToSection('contact')}
-              >
+              <button className="btn" onClick={() => scrollToSection('contact')} >
                 Get In Touch
               </button>
             </div>

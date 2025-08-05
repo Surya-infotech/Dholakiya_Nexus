@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { CalendarToday, Person, ArrowForward, Search } from '@mui/icons-material';
+import { ArrowForward, CalendarToday, Person, Search } from '@mui/icons-material';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Blog.scss';
 
 const Blog = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -79,9 +82,9 @@ const Blog = () => {
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || 
-                           post.category.toLowerCase().includes(selectedCategory.toLowerCase());
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' ||
+      post.category.toLowerCase().includes(selectedCategory.toLowerCase());
     return matchesSearch && matchesCategory;
   });
 
@@ -90,12 +93,14 @@ const Blog = () => {
   return (
     <section className="blog" id="blog">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Our Blog</h2>
-          <p className="section-subtitle">
-            Insights, tutorials, and industry trends from our team of experts
-          </p>
-        </div>
+        {isHomePage && (
+          <div className="section-header">
+            <h2 className="section-title">Our Blog</h2>
+            <p className="section-subtitle">
+              Insights, tutorials, and industry trends from our team of experts
+            </p>
+          </div>
+        )}
 
         {/* Search and Filter */}
         <div className="blog-controls">

@@ -1,24 +1,12 @@
-import React, { useState } from 'react';
-import { 
-  Phone, 
-  Email, 
-  Schedule,
-  Send,
-  LinkedIn,
-  Twitter,
-  Facebook,
-  Instagram
-} from '@mui/icons-material';
+import { Email, Facebook, Instagram, LinkedIn, Phone, Schedule, Send, Twitter } from '@mui/icons-material';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Contact.scss';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: ''
-  });
-
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  const [formData, setFormData] = useState({ name: '', email: '', service: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
@@ -32,16 +20,10 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
     setTimeout(() => {
       alert('Thank you for your message! We will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        service: '',
-        message: ''
-      });
+      setFormData({ name: '', email: '', service: '', message: '' });
       setIsSubmitting(false);
     }, 2000);
   };
@@ -71,21 +53,19 @@ const Contact = () => {
     { icon: Instagram, url: "#", title: "Instagram" }
   ];
 
-  const services = [
-    "Web Development",
-    "Mobile Development",
-    "IT Consulting"
-  ];
+  const services = ["Web Development", "Mobile Development", "IT Consulting"];
 
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
-            Ready to start your next project? Let's discuss how we can help you achieve your goals
-          </p>
-        </div>
+        {isHomePage && (
+          <div className="section-header">
+            <h2 className="section-title">Get In Touch</h2>
+            <p className="section-subtitle">
+              Ready to start your next project? Let's discuss how we can help you achieve your goals
+            </p>
+          </div>
+        )}
 
         <div className="contact-content">
           <div className="contact-info">
@@ -112,9 +92,9 @@ const Contact = () => {
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
                   return (
-                    <a 
+                    <a
                       key={index}
-                      href={social.url} 
+                      href={social.url}
                       title={social.title}
                     >
                       <IconComponent />
@@ -181,11 +161,7 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
-                className="btn submit-btn"
-                disabled={isSubmitting}
-              >
+              <button type="submit" className="btn submit-btn" disabled={isSubmitting}>
                 {isSubmitting ? (
                   'Sending...'
                 ) : (

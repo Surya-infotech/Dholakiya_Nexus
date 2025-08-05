@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
 import { OpenInNew, Visibility } from '@mui/icons-material';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Portfolio.scss';
 
 const Portfolio = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const [activeFilter, setActiveFilter] = useState('all');
 
   const scrollToSection = (sectionId) => {
@@ -61,19 +64,21 @@ const Portfolio = () => {
     { id: 'mobile', label: 'Mobile Apps' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
     <section className="portfolio" id="portfolio">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Our Portfolio</h2>
-          <p className="section-subtitle">
-            Explore our latest projects and see how we've helped businesses achieve their goals
-          </p>
-        </div>
+        {isHomePage && (
+          <div className="section-header">
+            <h2 className="section-title">Our Portfolio</h2>
+            <p className="section-subtitle">
+              Explore our latest projects and see how we've helped businesses achieve their goals
+            </p>
+          </div>
+        )}
 
         <div className="portfolio-filters">
           {filters.map(filter => (
@@ -101,14 +106,14 @@ const Portfolio = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="portfolio-content">
                 <div className="portfolio-category">
                   {project.category === 'web' ? 'Web Development' : 'Mobile Development'}
                 </div>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                
+
                 <div className="portfolio-tech">
                   {project.technologies.map((tech, index) => (
                     <span className="tech-tag" key={index}>{tech}</span>
@@ -123,7 +128,7 @@ const Portfolio = () => {
           <div className="cta-content">
             <h3>Have a Project in Mind?</h3>
             <p>Let's discuss how we can bring your ideas to life</p>
-            <button 
+            <button
               className="btn"
               onClick={() => scrollToSection('contact')}
             >

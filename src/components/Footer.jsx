@@ -1,6 +1,5 @@
-import React from 'react';
+import { Facebook, GitHub, Instagram, KeyboardArrowUp, LinkedIn, Twitter } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { LinkedIn, Twitter, Facebook, Instagram, GitHub, KeyboardArrowUp } from '@mui/icons-material';
 import './Footer.scss';
 
 const Footer = () => {
