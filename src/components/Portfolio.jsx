@@ -1,10 +1,11 @@
-import { OpenInNew, Visibility } from '@mui/icons-material';
+
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Portfolio.scss';
 
 const Portfolio = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -12,6 +13,16 @@ const Portfolio = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleStartProjectClick = () => {
+    if (isHomePage) {
+      // If on home page, scroll to contact section
+      scrollToSection('contact');
+    } else {
+      // If on portfolio page, navigate to contact page
+      navigate('/contact');
     }
   };
 
@@ -97,14 +108,6 @@ const Portfolio = () => {
             <div className="portfolio-card" key={project.id}>
               <div className="portfolio-image">
                 <img src={project.image} alt={project.title} />
-                <div className="portfolio-overlay">
-                  <a href={project.liveUrl} className="overlay-btn" title="Live Demo">
-                    <OpenInNew />
-                  </a>
-                  <a href={project.githubUrl} className="overlay-btn" title="Source Code">
-                    <Visibility />
-                  </a>
-                </div>
               </div>
 
               <div className="portfolio-content">
@@ -130,7 +133,7 @@ const Portfolio = () => {
             <p>Let's discuss how we can bring your ideas to life</p>
             <button
               className="btn"
-              onClick={() => scrollToSection('contact')}
+              onClick={handleStartProjectClick}
             >
               Start Your Project
             </button>

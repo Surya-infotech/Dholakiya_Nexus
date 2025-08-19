@@ -21,8 +21,8 @@ const Footer = () => {
     company: [
       { name: "About Us", url: "/about" },
       { name: "Portfolio", url: "/portfolio" },
-      { name: "Careers", url: "#" },
-      { name: "Blog", url: "/blog" },
+      // { name: "Careers", url: "#" },
+      // { name: "Blog", url: "/blog" },
       { name: "Contact", url: "/contact" }
     ],
     resources: [

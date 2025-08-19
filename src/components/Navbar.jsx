@@ -65,9 +65,9 @@ const Navbar = () => {
             <Link to="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={handleNavClick}>
               Portfolio
             </Link>
-            <Link to="/blog" className={`nav-link ${isActive('/blog') ? 'active' : ''}`} onClick={handleNavClick}>
+            {/* <Link to="/blog" className={`nav-link ${isActive('/blog') ? 'active' : ''}`} onClick={handleNavClick}>
               Blog
-            </Link>
+            </Link> */}
             <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={handleNavClick}>
               Contact
             </Link>
