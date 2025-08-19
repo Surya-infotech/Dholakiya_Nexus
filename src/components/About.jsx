@@ -1,11 +1,26 @@
 import { EmojiEvents, Group, Handshake, Lightbulb } from '@mui/icons-material';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './About.scss';
 
 const About = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGetInTouchClick = () => {
+    if (isHomePage) {
+      // If on home page, scroll to contact section
+      scrollToSection('contact');
+    } else {
+      // If on about page, navigate to contact page
+      navigate('/contact');
     }
   };
 
@@ -71,7 +86,7 @@ const About = () => {
             </div>
 
             <div className="about-cta">
-              <button className="btn" onClick={() => scrollToSection('contact')} >
+              <button className="btn" onClick={handleGetInTouchClick} >
                 Get In Touch
               </button>
             </div>

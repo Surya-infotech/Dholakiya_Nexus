@@ -1,4 +1,4 @@
-import { Facebook, GitHub, Instagram, KeyboardArrowUp, LinkedIn, Twitter } from '@mui/icons-material';
+import { Facebook, Instagram, KeyboardArrowUp, LinkedIn } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import './Footer.scss';
 
@@ -33,10 +33,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: LinkedIn, url: "#", label: "LinkedIn" },
-    { icon: Twitter, url: "#", label: "Twitter" },
     { icon: Facebook, url: "#", label: "Facebook" },
-    { icon: Instagram, url: "#", label: "Instagram" },
-    { icon: GitHub, url: "#", label: "GitHub" }
+    { icon: Instagram, url: "#", label: "Instagram" }
   ];
 
   return (
@@ -52,7 +50,7 @@ const Footer = () => {
               </div>
             </div>
             <p>
-              Empowering businesses with innovative technology solutions. 
+              Empowering businesses with innovative technology solutions.
               We specialize in web development, mobile apps, and IT consulting.
             </p>
             <div className="social-links">
@@ -98,7 +96,7 @@ const Footer = () => {
           <div className="footer-section contact-info">
             <h4>Contact Info</h4>
             <div className="contact-details">
-              <p><strong>Phone:</strong><br />+1 (555) 123-4567</p>
+              <p><strong>Location:</strong><br />Surat, Gujarat, India</p>
               <p><strong>Email:</strong><br />info@dholakiyanexus.com</p>
             </div>
           </div>
@@ -106,7 +104,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 Dholakiya Nexus. All rights reserved.</p>
+            <p>&copy; 2025 Dholakiya Nexus. All rights reserved.</p>
             <div className="footer-bottom-links">
               <Link to="#">Privacy Policy</Link>
               <Link to="#">Terms of Service</Link>

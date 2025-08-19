@@ -1,15 +1,26 @@
 import { ArrowForward, Code, PhoneAndroid, Settings } from '@mui/icons-material';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Services.scss';
 
 const Services = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleConsultationClick = () => {
+    if (isHomePage) {
+      // If on home page, scroll to contact section
+      scrollToSection('contact');
+    } else {
+      // If on services page, navigate to contact page
+      navigate('/contact');
     }
   };
 
@@ -73,9 +84,9 @@ const Services = () => {
             <p>Let's discuss how our services can help you achieve your goals</p>
             <button
               className="btn"
-              onClick={() => scrollToSection('contact')}
+              onClick={handleConsultationClick}
             >
-              Get Free Consultation
+              Get Our Consultation
               <ArrowForward />
             </button>
           </div>
