@@ -19,14 +19,14 @@ const Hero = () => {
               <span style={{ color: 'var(--secondary-color)' }}> Digital Reality</span>
             </h1>
             <p>
-              We are a leading IT company specializing in innovative software solutions, 
+              We are a leading IT company specializing in innovative software solutions,
               web development, and digital transformation services that drive business growth.
             </p>
-            
+
             <div className="hero-buttons">
-              <button 
+              <button
                 className="btn btn-primary hero-btn"
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('contact')}
               >
                 <Rocket />
                 Get Started
@@ -34,7 +34,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="hero-image">
             <div className="hero-graphic">
               <div className="floating-card card-1">
