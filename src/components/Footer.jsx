@@ -1,8 +1,10 @@
 import { Facebook, Instagram, KeyboardArrowUp, LinkedIn } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Footer.scss';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -10,6 +12,10 @@ const Footer = () => {
   const handleNavClick = () => {
     // Scroll to top when navigating from footer
     window.scrollTo(0, 0);
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   const footerLinks = {
@@ -42,7 +48,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section company-info">
-            <div className="company-logo">
+            <div className="company-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
               <img src="/MiniLogo.png" alt="Dholakiya Nexus" />
               <div className="logo-text">
                 <span className="company-name-dholakiya">Dholakiya</span>
