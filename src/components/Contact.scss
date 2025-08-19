@@ -21,7 +21,7 @@
 
       .contact-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
         padding: 2rem;
         background: var(--background-light);
@@ -41,6 +41,9 @@
         }
 
         .contact-content {
+          flex: 1;
+          min-width: 0;
+
           h4 {
             font-size: 1.125rem;
             margin-bottom: 0.25rem;
